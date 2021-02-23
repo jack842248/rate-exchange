@@ -80,6 +80,15 @@ h1
 	letter-spacing: 2px
 	padding: 40px 0px
 
+.title::before
+	content: "國家名稱"
+	display: block
+
+.buy::before
+	content: "台幣買入"
+	display: block
+
+
 .fa-coins
 	margin-right: 20px
 
@@ -99,6 +108,12 @@ small
 	display: block
 	margin-bottom: 10px
 
+.container
+	padding: 15px
+
+#country
+	font-size: 16px
+
 
 //--------------------------------** 768 **--------------------------------//
 @media (max-width: 768px)
@@ -111,3 +126,18 @@ small
 	h1
 		font-size: 24px
 		padding: 10px 0px
+
+	.title::before
+		content: "國家"
+		display: block
+
+	.buy::before
+		content: "買入"
+		display: block
+
+	.container
+		margin: 0
+		padding: 0
+
+	#country
+		font-size: 14px

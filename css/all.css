@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;500;700;900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -82,6 +83,16 @@ h1 {
   padding: 40px 0px;
 }
 
+.title::before {
+  content: "國家名稱";
+  display: block;
+}
+
+.buy::before {
+  content: "台幣買入";
+  display: block;
+}
+
 .fa-coins {
   margin-right: 20px;
 }
@@ -108,6 +119,14 @@ small {
   margin-bottom: 10px;
 }
 
+.container {
+  padding: 15px;
+}
+
+#country {
+  font-size: 16px;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 36px;
@@ -119,6 +138,21 @@ small {
   h1 {
     font-size: 24px;
     padding: 10px 0px;
+  }
+  .title::before {
+    content: "國家";
+    display: block;
+  }
+  .buy::before {
+    content: "買入";
+    display: block;
+  }
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+  #country {
+    font-size: 14px;
   }
 }
 /*# sourceMappingURL=all.css.map */

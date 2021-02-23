@@ -28,7 +28,7 @@ body
             small.text-white 更新日期 : 2021/2/22
             .row.d-flex.justify-content-center
                 .col-12.my-2
-                    .input-group.input-group-lg
+                    .input-group.input-group
                         .input-group-prepend
                             label.input-group-text.bg-warning.click(for="a") 請輸入金額$
                         input.form-control(id="a" v-model="inputVal" type='number')
@@ -40,17 +40,17 @@ body
                     table.table.table-bordered.table-striped.table-dark.text-center
                         thead
                             tr.bg-secondary
-                                th(width="20%") 國家名稱
-                                th.click(@click="sortBuy") 台幣買入
+                                th(width="20%") 國家
+                                th.click(@click="sortBuy") 買入
                                     span(:class="{'rotate':isBuy}")
                                         i.fas.fa-angle-up.text-warning
-                                th.click(@click="sortSell") 台幣賣出
+                                th.click(@click="sortSell") 賣出
                                     span(:class="{'rotate':isSell}")
                                         i.fas.fa-angle-up.text-warning
-                                th.click(width="30%") 匯差(賣出-買入)
+                                th.click(width="20%") 匯差
                         tbody.text-rigth
                             tr(v-for="item in money")
-                                td {{item.name}}
+                                td#country(v-html="item.name")
                                 td(v-if="a == false") {{ FloatMul( inputVal , item.buy ) || item.buy }}
                                 td(v-if="a == true")  {{ parseInt(FloatMul( inputVal , item.buy )) || item.buy }}
                                 td(v-if="a == false") {{ FloatMul( inputVal , item.sell ) || item.sell }}
