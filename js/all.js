@@ -12,7 +12,6 @@ let app = new Vue({
             {name:"中國大陸(人民幣)",buy: 4.221,sell: 4.383},
             {name:"新加坡(新加坡幣)",buy: 20.52,sell: 21.43},
             {name:"泰國(泰幣)",buy: 0.8021,sell: 0.9921},
-            {name:"越南(越南盾)",buy: 0.00082,sell: 0.00132},
             {name:"馬來西亞(馬來幣)",buy: 5.79,sell: 7.415},
             {name:"澳洲(澳幣)",buy: 21.62,sell: 22.4},
             {name:"紐西蘭(紐元)",buy: 19.95,sell: 20.8},
@@ -20,5 +19,49 @@ let app = new Vue({
         ],
         inputVal: "",
         a: false,
+        isBuy: true,
+        isSell: true,
+        isRate: true
+    },
+    methods:{
+        sortBuy: function(){
+            if(this.isBuy == true){
+                this.money.sort((x,y) => y.buy - x.buy);
+                this.isBuy = false;
+            }else if(this.isBuy == false){
+                this.money.sort((x,y) => x.buy - y.buy);
+                this.isBuy = true;
+            }
+        },
+        sortSell: function(){
+            if(this.isSell == true){
+                this.money.sort((x,y) => y.sell - x.sell);
+                this.isSell = false;
+
+            }else if(this.isSell == false){
+                this.money.sort((x,y) => x.sell - y.buy);
+                this.isSell = true;
+            }
+        }
+    },
+    computed:{
+        FloatSubtraction: function(){
+            return function(arg1,arg2){
+                var r1, r2, m, n;
+                try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+                try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
+                m = Math.pow(10, Math.max(r1, r2));
+                n = (r1 >= r2) ? r1 : r2;
+                return ((arg1 * m - arg2 * m) / m).toFixed(n);
+            }
+        },
+        FloatMul: function(){
+            return function(arg1, arg2){
+                var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+                try { m += s1.split(".")[1].length; } catch (e) { }
+                try { m += s2.split(".")[1].length; } catch (e) { }
+                return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+            }   
+        }
     }
 });

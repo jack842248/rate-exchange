@@ -86,6 +86,23 @@ h1 {
   margin-right: 20px;
 }
 
+.click {
+  cursor: pointer;
+}
+
+span {
+  display: inline-block;
+}
+
+.rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-angle-up {
+  font-size: 20px;
+}
+
 small {
   display: block;
   margin-bottom: 10px;
